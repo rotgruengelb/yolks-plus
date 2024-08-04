@@ -20,9 +20,8 @@ RUN         apt update -y \
                 libfreetype6 \
                 tini \
 				zip \
-				unzip \
-				
-	
+				unzip 
+                
 RUN			curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash 
 RUN         apt install -y git-lfs
 	
