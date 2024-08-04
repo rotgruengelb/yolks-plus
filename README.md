@@ -17,7 +17,7 @@ This repository is mainly for personal use, but contributions are welcome.
 
 ## Available Images
 
-### [Java+X](/java+x)
+### [Java-X](/java-x)
 
-* [`java17+git`](/java/17+git)
-  * `ghcr.io/rotgruengelb/yolks-plus:java+x_17+git`
+* [`java17-git`](/java-x/17-git)
+  * `ghcr.io/rotgruengelb/yolks-plus:java-x_17-git`

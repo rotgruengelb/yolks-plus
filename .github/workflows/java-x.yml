@@ -1,4 +1,4 @@
-name: build java+x
+name: build java-x
 on:
   workflow_dispatch:
   schedule:
@@ -7,16 +7,16 @@ on:
     branches:
       - master
     paths:
-      - java+x/**
+      - java-x/**
 jobs:
   push:
-    name: "yolks-plus:java+x_${{ matrix.tag }}"
+    name: "yolks-plus:java-x_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         tag:
-          - 17+git
+          - 17-git
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
@@ -30,9 +30,9 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v5
         with:
-          context: ./java+x
-          file: ./java+x/${{ matrix.tag }}/Dockerfile
+          context: ./java-x
+          file: ./java-x/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/rotgruengelb/yolks-plus:java+x_${{ matrix.tag }}
+            ghcr.io/rotgruengelb/yolks-plus:java-x_${{ matrix.tag }}
