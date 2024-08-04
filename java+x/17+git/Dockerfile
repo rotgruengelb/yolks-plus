@@ -5,13 +5,14 @@ LABEL       author="rotgruengelb" maintainer="rotgrungelblab@gmail.com"
 LABEL       org.opencontainers.image.source="https://github.com/rotgruengelb/yolks-plus"
 LABEL       org.opencontainers.image.licenses=MIT
 
+RUN			curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash 
 RUN         apt update -y \
             && apt install -y \
                 curl \
                 lsof \
                 ca-certificates \
                 openssl \
-                git \
+                git-all \
                 tar \
                 sqlite3 \
                 fontconfig \
@@ -20,8 +21,9 @@ RUN         apt update -y \
                 libfreetype6 \
                 tini \
 				zip \
-				unzip
-
+				unzip \
+				git-lfs
+	
 ## Setup user and working directory
 RUN         useradd -m -d /home/container -s /bin/bash container
 USER        container
